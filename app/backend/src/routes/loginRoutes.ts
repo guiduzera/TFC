@@ -9,9 +9,12 @@ const loginRouter = Router();
 
 const jwt = new JWT();
 const bcrypt = new Bcrypt();
+const validations = new Validations(jwt);
 const service = new UserServices(jwt, bcrypt);
 const controller = new UserControllers(service);
 
 loginRouter.post('/', Validations.loginValidation, controller.login);
+
+loginRouter.get('/validate', validations.TokenVerify);
 
 export default loginRouter;

@@ -1,5 +1,6 @@
 import { sign, verify } from 'jsonwebtoken';
 import { Ijwt, IToken } from './auth.interfaces';
+import CustomError from './CustomError';
 
 export default class JWT implements Ijwt {
   _secret = process.env.JWT_SECRET || 'secret';
@@ -15,8 +16,7 @@ export default class JWT implements Ijwt {
       const { data } = verify(token, this._secret) as { data: IToken };
       return data;
     } catch (error) {
-      console.log(error);
-      throw new Error('Token inválido');
+      throw new CustomError(401, 'Token inválido');
     }
   }
 }
