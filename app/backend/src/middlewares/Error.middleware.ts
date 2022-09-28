@@ -5,7 +5,7 @@ const errorMiddleware = (err: CustomError, req: Request, res: Response, _next: N
   const status = err.status || 500;
   const message = err.message || 'Something went wrong';
 
-  res.status(status).json({ status, message });
+  res.status(status).json({ message });
 };
 
 export default errorMiddleware;

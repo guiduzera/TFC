@@ -3,6 +3,7 @@ import JWT from '../helpers/JWT';
 import UserControllers from '../controllers/User.controllers';
 import UserServices from '../services/User.services';
 import Bcrypt from '../helpers/Bcrypt';
+import Validations from '../middlewares/validations.middlewares';
 
 const loginRouter = Router();
 
@@ -11,6 +12,6 @@ const bcrypt = new Bcrypt();
 const service = new UserServices(jwt, bcrypt);
 const controller = new UserControllers(service);
 
-loginRouter.post('/', controller.login);
+loginRouter.post('/', Validations.loginValidation, controller.login);
 
 export default loginRouter;
