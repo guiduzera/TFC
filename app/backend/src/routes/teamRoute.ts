@@ -13,3 +13,5 @@ teamRouter.get('/', teamControllers.getAll);
 teamRouter.get('/:id', teamControllers.getById);
 
 export default teamRouter;
+
+// como colocar na interface que o atributo tem que sert privado
