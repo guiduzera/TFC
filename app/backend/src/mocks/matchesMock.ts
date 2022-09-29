@@ -14,7 +14,7 @@ export const MatchesMock = [
     },
   },
   {
-    id: 41,
+    id: 2,
     homeTeam: 16,
     homeTeamGoals: 2,
     awayTeam: 9,
@@ -31,7 +31,7 @@ export const MatchesMock = [
 
 export const MatchesMockTrue = [
   {
-    id: 41,
+    id: 2,
     homeTeam: 16,
     homeTeamGoals: 2,
     awayTeam: 9,
