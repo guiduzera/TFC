@@ -36,17 +36,14 @@ describe('Testando a rota /matches', () => {
 });
 
 describe('Testando a rota /matches?inProgress=true/false', () => {
-    before(async () => {
-        sinon
-          .stub(Match, "findAll")
-          .resolves(MatchesMock as unknown as Match[]);
-      });
-    
-      after(()=>{
+      afterEach(()=>{
         (Match.findAll as sinon.SinonStub).restore();
       })
 
     it('Get Request feito com sucesso para a rota /matches?inProgress=true', async () => {
+      sinon
+          .stub(Match, "findAll")
+          .resolves(MatchesMockTrue as unknown as Match[]);
         chaiHttpResponse = await chai
            .request(app)
            .get('/matches?inProgress=true');
@@ -56,6 +53,9 @@ describe('Testando a rota /matches?inProgress=true/false', () => {
       });
 
       it('Get Request feito com sucesso para a rota /matches?inProgress=false', async () => {
+        sinon
+          .stub(Match, "findAll")
+          .resolves(MatchesMockFalse as unknown as Match[]);
         chaiHttpResponse = await chai
            .request(app)
            .get('/matches?inProgress=false');
