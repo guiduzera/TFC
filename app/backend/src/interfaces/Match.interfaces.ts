@@ -1,14 +1,14 @@
 export type Imatch = {
-  id: number;
+  id?: number;
   homeTeam: number;
   homeTeamGoals: number;
   awayTeam: number;
   awayTeamGoals: number;
-  inProgress: boolean;
-  teamHome: {
+  inProgress?: boolean;
+  teamHome?: {
     teamName: string
   },
-  teamAway: {
+  teamAway?: {
     teamName: string
   }
 };
