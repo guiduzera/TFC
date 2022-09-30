@@ -7,6 +7,7 @@ export default class LeaderBoardControllers {
   constructor(s: IleaderBoard) {
     this.service = s;
     this.getHome = this.getHome.bind(this);
+    this.getAway = this.getAway.bind(this);
   }
 
   async getHome(_req: Request, res: Response, next: NextFunction): Promise<Response | void> {
