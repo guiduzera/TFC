@@ -8,6 +8,7 @@ export default class LeaderBoardControllers {
     this.service = s;
     this.getHome = this.getHome.bind(this);
     this.getAway = this.getAway.bind(this);
+    this.getGeneral = this.getGeneral.bind(this);
   }
 
   async getHome(_req: Request, res: Response, next: NextFunction): Promise<Response | void> {
@@ -22,6 +23,15 @@ export default class LeaderBoardControllers {
   async getAway(_req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const result = await this.service.getAway();
+      return res.status(200).json(result);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async getGeneral(_req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+    try {
+      const result = await this.service.getGeneral();
       return res.status(200).json(result);
     } catch (error) {
       next(error);

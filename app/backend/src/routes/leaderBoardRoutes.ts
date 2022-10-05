@@ -12,4 +12,6 @@ leaderBoardRoutes.get('/home', controllers.getHome);
 
 leaderBoardRoutes.get('/away', controllers.getAway);
 
+leaderBoardRoutes.get('/', controllers.getGeneral);
+
 export default leaderBoardRoutes;
